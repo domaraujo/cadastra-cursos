@@ -4,4 +4,3 @@ INSERT INTO CATEGORIA VALUES (NEXTVAL('mySequence'),'Programação');
 INSERT INTO CATEGORIA VALUES (NEXTVAL('mySequence'),'QA');
 INSERT INTO CATEGORIA VALUES (NEXTVAL('mySequence'),'Metodologia Ágil');
 
-

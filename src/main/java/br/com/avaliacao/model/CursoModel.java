@@ -1,7 +1,9 @@
 package br.com.avaliacao.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +14,8 @@ import java.time.LocalDate;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name="curso")
 public class CursoModel implements Serializable {
     @Id
@@ -31,4 +35,6 @@ public class CursoModel implements Serializable {
     @NotNull
     @ManyToOne()
     private CategoriaModel categoriaModel;
+
+
 }
