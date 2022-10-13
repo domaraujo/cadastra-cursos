@@ -10,12 +10,17 @@ public interface CursoService {
 
     List<CursoModel>  listarCursos();
 
-    CursoModel salvar(CursoDomain cursoDomain);
-
     CursoModel buscarPorId(Long id);
+
+    CursoModel cadastrarCurso(CursoDomain cursoDomain);
 
     CursoModel atualizarCurso(CursoDomain cursoDomain);
 
     void excluirPorId(Long id);
+
+    void verificarDataInicio( CursoDomain cursoDomain);
+
+    void verificarPeriodoCurso( CursoDomain cursoDomain);
+
 
 }

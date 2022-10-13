@@ -2,15 +2,18 @@ package br.com.avaliacao.model;
 
 
 import lombok.Data;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
 @Entity
 @Table(name="curso")
-public class CursoModel {
+public class CursoModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,5 +30,5 @@ public class CursoModel {
     private Integer quantidadeAlunoPorTurma;
     @NotNull
     @ManyToOne()
-    private CategoriaModel categoria = new CategoriaModel();
+    private CategoriaModel categoriaModel;
 }

@@ -21,7 +21,7 @@ public class CategoriaController {
     public static final String ID = "/{id}";
 
     @Autowired
-    ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     @Autowired
     private CategoriaService categoriaService;

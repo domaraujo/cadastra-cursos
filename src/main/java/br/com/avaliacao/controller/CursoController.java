@@ -1,6 +1,8 @@
 package br.com.avaliacao.controller;
 
+import br.com.avaliacao.model.CursoModel;
 import br.com.avaliacao.model.domain.CursoDomain;
+import br.com.avaliacao.repository.CursoRepository;
 import br.com.avaliacao.service.CursoService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +22,13 @@ public class CursoController {
     public static final String ID = "/{id}";
 
     @Autowired
-    ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     @Autowired
     private CursoService cursoService;
+
+    @Autowired
+    private CursoRepository cursoRepository;
 
 
     @GetMapping
@@ -40,7 +45,7 @@ public class CursoController {
     @PostMapping
     public ResponseEntity<CursoDomain> cadastrarCurso(@RequestBody CursoDomain cursoDomain) {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path(ID)
-                .buildAndExpand(cursoService.salvar(cursoDomain).getId()).toUri();
+                .buildAndExpand(cursoService.cadastrarCurso(cursoDomain).getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
@@ -56,20 +61,13 @@ public class CursoController {
         return ResponseEntity.noContent().build();
 
     }
+
+
+ //   @GetMapping
+ //   private ResponseEntity<List<CursoDomain>> verificarPeriodosCadastrados() {
+ //       return ResponseEntity.ok().body(cursoService.verificarPeriodosCadastrados()
+ //               .stream().map(x -> modelMapper.map(x, CursoDomain.class)).collect(Collectors.toList()));
+ //   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
